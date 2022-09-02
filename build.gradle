@@ -1,11 +1,10 @@
 plugins {
+    id 'java-library'
     id 'maven-publish'
 }
 
-group 'com.brashmonkey.spriter'
-version '1.0.1'
-
-apply plugin: 'java-library'
+group = 'com.brashmonkey.spriter'
+version = '1.0.1'
 
 repositories {
     mavenCentral()
