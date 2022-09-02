@@ -19,7 +19,7 @@ public class Data {
 
         /**
          * @param mode
-         * @return The pixel mode for the given int value. Default is {@link NONE}.
+         * @return The pixel mode for the given int value. Default is {@link PixelMode#NONE}.
          */
         public static PixelMode get(int mode) {
             switch (mode) {
@@ -96,7 +96,6 @@ public class Data {
      * Returns an {@link Entity} instance with the given index.
      * @param index index of the entity to return.
      * @return the entity with the given index
-     * @throws {@link IndexOutOfBoundsException} if the index is out of range 
      */
     public Entity getEntity(int index){
     	return this.entities[index];
@@ -139,7 +138,6 @@ public class Data {
      * @param folder index of the folder
      * @param file index of the file
      * @return the {@link File} instance in the given folder at the given file index
-     * @throws {@link IndexOutOfBoundsException} if the folder or file index are out of range 
      */
     public File getFile(int folder, int file){
     	return getFile(this.getFolder(folder), file);
