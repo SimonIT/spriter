@@ -6,6 +6,7 @@ import com.brashmonkey.spriter.Data;
 import com.brashmonkey.spriter.Player;
 import com.brashmonkey.spriter.SCMLReader;
 import com.brashmonkey.spriter.SCONReader;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.*;
@@ -39,6 +40,7 @@ public class SCONReaderTest {
     }
 
     @Test
+    @Ignore
     public void should_be_as_fast_as_scml_reader () throws IOException {
         long sconBegin = System.nanoTime();
             SCONReader sconReader = new SCONReader(new FileInputStream(new File("src/test/resources/Roy/roy.scon")));

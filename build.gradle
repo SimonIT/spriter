@@ -1,6 +1,8 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
+    id 'org.ajoberstar.grgit' version '5.0.0'
+    id 'org.ajoberstar.git-publish' version '4.1.1'
 }
 
 group = 'com.brashmonkey.spriter'
@@ -24,6 +26,36 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
+            pom {
+                name = "Spriter"
+                description = "Generic Java implementation for Spriter."
+                url = "https://brashmonkey.com/"
+                licenses {
+                    license {
+                        name = "Apache License, Version 2.0"
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        distribution = "repo"
+                    }
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url uri("$project.buildDir.absolutePath/mvn")
         }
     }
 }
+
+gitPublish {
+    branch = 'mvn'
+
+    contents {
+        from "$project.buildDir.absolutePath/mvn"
+    }
+
+    commitMessage = "Maven artifacts for $version"
+}
+
+gitPublishCommit.dependsOn publish
