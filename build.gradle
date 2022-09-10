@@ -1,7 +1,10 @@
-group 'com.brashmonkey.spriter'
-version '1.0.1'
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
 
-apply plugin: 'java-library'
+group = 'com.brashmonkey.spriter'
+version = '1.0.1'
 
 repositories {
     mavenCentral()
@@ -12,8 +15,15 @@ dependencies {
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
-task spriter(type: Jar)
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
 
-artifacts {
-    archives spriter
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
 }
