@@ -58,4 +58,4 @@ gitPublish {
     commitMessage = "Maven artifacts for $version"
 }
 
-gitPublishCommit.dependsOn publish
+gitPublishCopy.dependsOn publish
